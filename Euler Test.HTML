@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+    <head>
+        <title>HelloHtml</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body style="background-color:rgb(17, 96, 170);">
+        
+        <h1 style= "color: rgb(5, 5, 85);">  Ordinary Differential DFEILD Solution Grapher  </h1>
+        <p><br> By: Kenny Han <br> </p>
+        <script>
+            document.write("");
+           </script>
+        
+        <p style="background-color:salmon ;"><br><br><br><br><br></p>
+        <img src="math.png" width="500" height="200";>
+        <canvas style="background-color: azure;" id="Plane" width="500" height="400" style="border:1px solid #000000;">
+        </canvas>
+       
+        <script>
+        new Chart("myChart", {
+            type: "line",
+            data: {
+            labels: xValues,
+            datasets: [{
+                fill: false,
+                pointRadius: 2,
+                borderColor: "rgba(0,0,255,0.5)",
+                data: yValues
+                 }]
+            },    
+        options: {
+        legend: {display: false},
+        title: {
+            display: true,
+            text: "y = x * 2 + 7",
+            fontSize: 16
+                }
+            }
+        });
+
+            function Euler(y,h,t){
+              return y+ h*Differential(t);
+            }
+            function Differential(t){
+              return 2 + t;
+            }  
+            var canvas = document.getElementById('Plane');  
+            var ctx = canvas.getContext("2d"); 
+            ctx.translate(0,canvas.height);
+            ctx.scale(1, -1);
+            ctx.beginPath();
+            y = 2;
+            t= 0;
+            h = 0.5;
+            ctx.moveTo(0,0);
+            
+           /* y = Euler(y,h,t);
+            ctx.lineTo(20,y);
+            ctx.stroke();
+            ctx.moveTo(0,0);
+            ctx.lineTo(500,500);
+            ctx.stroke();
+            */
+            
+            
+            while(t <200){
+            y = Euler(y,h,t);
+            t=t+h;
+            ctx.lineTo(t,y);
+            ctx.stroke(); 
+            ctx.moveTo(t,y);
+            }
+
+            
+        </script>
+        <script>
+
+        </script>
+        <hr>
+    </body>
+    
+</html>
+
