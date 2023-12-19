@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+textarea {
+    display: inline-block;
+    resize: none;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+input {
+    border: 1px solid #3498db;
+    border-radius: 5px;
+}
+
+/* Hover styles for buttons and input boxes */
+button:hover, input:hover {
+    transform: scale(1.1); /* Scale by 10% on hover */
+}
+button {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+button:hover {
+    transform: scale(1.1); /* Scale the button by 10% */
+    background-color: #2980b9; /* Change background color on hover */
+}
+/* Style the header */
+header {
+    background-color: rgb(17, 6, 43);
+    padding: 30px;
+    font-weight: bolder;
+    font: bolder;
+    text-align: center;
+    font-size: 34px;
+    color: white;
+}
+
+
+
+userIn {
+    float: left;
+    padding: 20px;
+    width: 100vw;
+    background-color: #42699c;
+}
+
+
+footer {
+    background-color: rgb(33, 77, 160);
+    padding: 10px;
+    
+    color: white;
+}

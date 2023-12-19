@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Line Segments with Chart.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <canvas id="myChart" width="400" height="400"></canvas>
+
+  <script>
+    // Generate line segments with a slope of 1
+    const generateLineSegments = () => {
+      const lineSegments = [];
+
+      for (let x = 0; x < 10; x++) {
+        for (let y = 0; y < 10; y++){
+            if (y % 2 == 0 && x%2 ==0){
+                lineSegments.push([{ x, y }, { x: x+1, y: y + 1 }]);
+            }
+            
+        }
+        //const y = x;
+      }
+
+      return lineSegments;
+    };
+
+    // Data for the chart
+    const data = {
+      labels: Array.from({ length: 10 }, (_, i) => i), // Use numbers from 0 to 9
+      datasets: generateLineSegments().map((segment, index) => ({
+        //label: `Line Segment ${index + 1}`,
+        borderColor: 'blue',
+        data: segment,
+        fill: false,
+        showLine: true, // Enable line connections for each segment
+      })),
+    };
+
+    // Configuration options
+    const options = {
+      scales: {
+        x: {
+          type: 'linear', // Use linear scale for x-axis
+          position: 'bottom',
+        },
+        y: {
+          min: 0,
+          max: 10, // Adjust the max value based on your data
+        },
+      },
+      plugins: {
+        legend: {
+          display: false,
+          labels: {
+            color: 'rgb(255, 99, 132)'
+          }
+        }
+      }
+    };
+
+    // Get the canvas element
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Create the chart
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: data,
+      options: options,
+    });
+  </script>
+</body>
+
+</html>
