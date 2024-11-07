@@ -42,6 +42,13 @@ plugins: {
 });
 
 function load(){
+    var differentialElem = document.getElementById("differential");
+    var y0Elem = document.getElementById("y0");
+
+    if (differentialElem.value.trim() === "" && y0Elem.value.trim() === "") {
+        differentialElem.value = "sin(x)*y";
+        y0Elem.value = "6";
+    }
     getLine();
     xValues = [];
     yValues =[];
@@ -181,6 +188,7 @@ return y
 }
 
 function getLine(){
+
         line = document.getElementById("differential").value;
         y = parseInt(document.getElementById("y0").value);
         xMax = parseInt(document.getElementById("xMax").value);
