@@ -90,5 +90,16 @@
    
       
     <script src="calculation.js"></script>
+    <script>
+      window.onload = function() {
+        document.getElementById("differential").value = "sin(x)*y";
+        document.getElementById("y0").value = "6";
+        document.getElementById("xMin").value = "-10";
+        document.getElementById("xMax").value = "10";
+        document.getElementById("yMin").value = "-10";
+        document.getElementById("yMax").value = "10";
+        load();
+      };
+    </script>
   </body>
 </html>
